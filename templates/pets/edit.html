@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form action="/pets/{{pet.id}}" method="post">
+        <label for="name">
+            Enter pet name
+        </label>
+        <input type="text" id="name" name="name" placeholder="Enter pet name here" value="{{pet.name}}" autofocus>
+        <label for="dob">
+            Enter date of birth
+        </label>
+        <input type="date" id="dob" name="dob" placeholder="Enter date of birth" value="{{pet.dob}}">
+        <label for="type">
+            Enter pet type
+        </label>
+        <input type="text" id="type" name="type" placeholder="Enter pet type" value="{{pet.type}}">
+        <label for="owner_details">
+            Enter ownter details
+        </label>
+        <input type="text" id="owner_details" name="owner_details" placeholder="Enter owner details" value="{{pet.owner_details}}">
+        <label for="treatment">
+            Enter treatment plan
+        </label>
+        <input type="text" id="treatment" name="treatment" placeholder="Enter treatment" value="{{pet.treatment}}">
+        <label for="vet_id">
+            Choose vet
+        </label>
+        <select name="vet_id" id="vet">
+            {% for vet in vets %}
+            
+                <option value="{{vet.id}}"{% if pet.vet_if == vet.id %} selected {% endif %}>{{vet.first_name}} {{vet.last_name}}</option>
+            {% endfor %}
+        </select>
+        <button>Update records</button>
+    </form>
+{% endblock %}

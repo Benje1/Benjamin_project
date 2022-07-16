@@ -12,7 +12,7 @@
         <label for="type">
             Enter pet type
         </label>
-        <input type="text" id="type" name="type" placeholder="Enter pet type">
+        <input type="text" id="type" name="type" placeholder="Enter pet type" required>
         <label for="owner_details">
             Enter ownter details
         </label>
@@ -20,11 +20,11 @@
         <label for="treatment">
             Enter treatment plan
         </label>
-        <input type="text" id="treatment" name="treatment" placeholder="Enter treatment">
+        <input type="text" id="treatment" name="treatment" placeholder="Enter treatment" required>
         <label for="vet_id">
             Choose vet
         </label>
-        <select name="vet_id" id="vet">
+        <select name="vet.id" id="vet.id">
             {% for vet in vets %}
                 <option value="{{vet.id}}">{{vet.first_name}} {{vet.last_name}}</option>
             {% endfor %}

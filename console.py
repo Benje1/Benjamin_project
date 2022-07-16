@@ -26,7 +26,7 @@ pet_repository.save(wilbur)
 # what_vet = pet_repository.vet(wilbur)
 # print(what_vet.__dict__)
 
-pets = pet_repository.select_all()
-for pet in pets:
-    print(pet.__dict__)
+# pets = pet_repository.select_all()
+# for pet in pets:
+#     print(pet.__dict__)
 pdb.set_trace()

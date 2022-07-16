@@ -5,7 +5,7 @@
             <a href="/pets/new">Add pet</a>
         </nav>
     <p>{% for pet in pets %}
-        Pet name: {{pet.name}},
+        Pet name: <a href="/pets/{{pet.id}}">{{pet.name}},</a>
         Type: {{pet.type}},
         Date of birth: {{pet.dob}},
         Owner: {{pet.owner_details}},

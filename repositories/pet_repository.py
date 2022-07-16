@@ -5,10 +5,10 @@ from models.vet import Vet
 import repositories.vet_repository as vet_repository
 
 def save(pet):
-    sql = """INSERT INTO pets (name, date_of_birth, type_of_animal, owner_details, treatment, vet_id) VALUES (%s, %s, %s, %s, %s, %s) RETURNING id"""
+    sql = """INSERT INTO pets (name, date_of_birth, type_of_animal, owner_details, treatment, vet_id) VALUES (%s, %s, %s, %s, %s, %s) RETURNING *"""
     values = [pet.name, pet.dob, pet.type, pet.owner_details, pet.treatment, pet.vet_id]
     results = run_sql(sql, values)
-    id = results[0]['id']
+    id = results
     pet.id = id
 
 def select_all():
