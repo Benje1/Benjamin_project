@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div>
+        <p>{{vet.first_name}}, {{vet.last_name}}</p>
+        <a href="/vets/{{vet.id}}/edit">Edit vet details</a>
+    </div>
+{% endblock %}
