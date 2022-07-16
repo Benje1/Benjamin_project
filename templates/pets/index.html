@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
+
+        <nav>
+            <a href="/pets/new">Add pet</a>
+        </nav>
     <p>{% for pet in pets %}
         Pet name: {{pet.name}},
         Type: {{pet.type}},

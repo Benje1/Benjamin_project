@@ -13,7 +13,7 @@ def save(pet):
 
 def select_all():
     pets = []
-    sql = "SELECT * FROM pets"
+    sql = "SELECT * FROM pets ORDER BY id"
     results = run_sql(sql)
     for row in results:
         pet = Pet(row['name'], row['date_of_birth'], row['type_of_animal'], row['owner_details'], row['treatment'], row['vet_id'], row['id'])

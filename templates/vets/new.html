@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form action="/vets" method="post">
+        <label for="first_name">
+            Enter first name
+        </label>
+        <input type="text" id="first_name" name="first_name" placeholder="Enter name" required autofocus>
+        <label for="last_name">
+            Enter last name
+        </label>
+        <input type="text" id="last_name" name="last_name" placeholder="Enter last name" required>
+        <button>Register new vet</button>
+    </form>
+{% endblock %}

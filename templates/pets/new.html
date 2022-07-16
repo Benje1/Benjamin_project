@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form action="/pets" method="post">
+        <label for="name">
+            Enter pet name
+        </label>
+        <input type="text" id="name" name="name" placeholder="Enter pet name here" required autofocus>
+        <label for="dob">
+            Enter date of birth
+        </label>
+        <input type="date" id="dob" name="dob" placeholder="Enter date of birth" required>
+        <label for="type">
+            Enter pet type
+        </label>
+        <input type="text" id="type" name="type" placeholder="Enter pet type">
+        <label for="owner_details">
+            Enter ownter details
+        </label>
+        <input type="text" id="owner_details" name="owner_details" placeholder="Enter owner details" required>
+        <label for="treatment">
+            Enter treatment plan
+        </label>
+        <input type="text" id="treatment" name="treatment" placeholder="Enter treatment">
+        <label for="vet_id">
+            Choose vet
+        </label>
+        <select name="vet_id" id="vet">
+            {% for vet in vets %}
+                <option value="{{vet.id}}">{{vet.first_name}} {{vet.last_name}}</option>
+            {% endfor %}
+        </select>
+        <button>Add Pet to records</button>
+    </form>
+{% endblock %}

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+<nav> <a href="/vets/new">Register a new vet</a></nav>
     {% for vet in vets %}
         <p>{{ vet.first_name}} {{vet.last_name}}</p>
         <form action="/vets/{{vet.id}}/delete" method="post">
