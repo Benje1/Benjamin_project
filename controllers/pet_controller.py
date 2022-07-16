@@ -10,3 +10,8 @@ pets_blueprint = Blueprint("pets", __name__)
 def pets():
     pets = pet_repository.select_all()
     return render_template("pets/index.html", pets=pets) 
+
+@pets_blueprint.route("/pets/<id>/delete", methods=["POST"])
+def delete(id):
+    pet_repository.delete(id)
+    return redirect("/pets")

@@ -2,7 +2,9 @@
 {% block content %}
     {% for vet in vets %}
         <p>{{ vet.first_name}} {{vet.last_name}}</p>
-        
+        <form action="/vets/{{vet.id}}/delete" method="post">
+            <button>Remove Vet</button>
+        </form>
     {% endfor %}
 
     {% endblock %}

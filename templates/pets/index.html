@@ -6,6 +6,9 @@
         Date of birth: {{pet.dob}},
         Owner: {{pet.owner_details}},
         Treatmnet: {{pet.treatment}}.
+        <form action="/pets/{{pet.id}}/delete" method="post">
+            <button>Remove</button>
+        </form>
     {% endfor %}</p>
     
 {% endblock %}
