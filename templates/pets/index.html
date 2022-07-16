@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minimoo sequi ipsum aut atque aliquam? Iste commodi nobis ex, optio maxime voluptates quas. Qui doloribus blanditiis inventore dolorem obcaecati delectus sint.</p>
+    <p>{% for pet in pets %}
+        Pet name: {{pet.name}},
+        Type: {{pet.type}},
+        Date of birth: {{pet.dob}},
+        Owner: {{pet.owner_details}},
+        Treatmnet: {{pet.treatment}}.
+    {% endfor %}</p>
     
 {% endblock %}

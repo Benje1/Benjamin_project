@@ -13,8 +13,8 @@ def select_all():
     vets = []
     sql = "SELECT * FROM vets"
     results = run_sql(sql)
-    for result in results:
-        vet = Vet(result['name'], result['id'])
+    for row in results:
+        vet = Vet(row['first_name'], row['last_name'], row['id'])
         vets.append(vet)
     return vets
 
@@ -31,3 +31,13 @@ def select(id):
 def delete_all():
     sql = "DELETE FROM vets"
     run_sql(sql)
+
+def delete(id):
+    sql = "DELETE FROM pets WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
+def update(vet):
+    sql = "UPDATE vets SET first_name = %s, last_name = %s WHERE id = %s"
+    values = [vet.first_name, vet.last_name, vet.id]
+    run_sql(sql, values)

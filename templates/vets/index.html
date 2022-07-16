@@ -1,4 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima sequi ipsum aut atque aliquam? Iste commodi nobis ex, optio maxime voluptates quas. Qui doloribus blanditiis inventore dolorem obcaecati delectus sint.
-{% endblock %}
+    {% for vet in vets %}
+        <p>{{ vet.first_name}} {{vet.last_name}}</p>
+        
+    {% endfor %}
+
+    {% endblock %}
