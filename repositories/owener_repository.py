@@ -1,3 +1,4 @@
+from unittest import result
 from db.run_sql import run_sql
 from models.owners import Owner
 from models.pet import Pet
@@ -19,6 +20,16 @@ def select_all():
         owner = Owner(row['name'], row['contact_details'], row['id'])
         owners.append(owner)
     return owners
+
+def select(id):
+    owner = None
+    sql = "SELECT * FROM owners WHERE id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+    if results:
+        result = results[0]
+    owner = Owner(result['name'], result['contact_details'], result['id'])
+    return owner
 
 def delete(id):
     sql = "DELETE FROM owners WHERE id = %s"

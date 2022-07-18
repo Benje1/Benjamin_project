@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form action="/pets/{{pet.id}}/treatment_edit" method="post">
+        <label for="treatment">
+            Add or edit treatment paln
+        </label>
+        <input type="text" id="treatment" name="treatment" placeholder="Enter treatment" value="{{pet.treatment}}">
+        <label for="vet_id">
+        <button>Update treatment</button>
+    </form>
+{% endblock %}

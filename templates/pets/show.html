@@ -4,9 +4,10 @@
         <p>{{pet.name}}</p>
         <p>{{pet.dob}}</p>
         <p>{{pet.type}}</p>
-        <p>{{pet.owner_details}}</p>
+        <p>{{owner.name}}</p>
         <p>{{pet.treatment}}</p>
-        <p>{{pet.vet_id}}</p>
+        <p>{{vet.first_name}} {{vet.last_name}}</p>
     </div>
     <a href="/pets/{{pet.id}}/edit">Update pet details</a>
+    <a href="/pets/{{pet.id}}/treatment_edit">Update treatment plan</a>
 {% endblock %}
