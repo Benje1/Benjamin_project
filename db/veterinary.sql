@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS pets;
 DROP TABLE IF EXISTS vets;
-DROP TABLE IF EXISTS owner;
+DROP TABLE IF EXISTS owners;
 
 CREATE TABLE vets (
     id SERIAL PRIMARY KEY,
@@ -16,4 +16,10 @@ CREATE TABLE pets (
     owner_details VARCHAR(255),
     treatment TEXT,
     vet_id SERIAL NOT NULL REFERENCES vets(id) ON DELETE CASCADE
+);
+
+CREATE TABLE owners (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    pet SERIAL NOT NULL REFERENCES pets(id)
 );
