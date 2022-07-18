@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div>
+        <p>{{owner.name}}</p>
+        <p>Contact details: {{owner.contact_details}}</p>
+        {% for pet in pets %}
+            <p>Registered pet: <a href="/pets/{{pet.id}}">{{pet.name}}</a></p>
+        {% endfor %}
+    </div>
+    <a href="/owners/{{owner.id}}/edit">Edit contact details</a>
+{% endblock %}

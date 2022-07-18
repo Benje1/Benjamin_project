@@ -37,3 +37,11 @@ def show(id):
 def edit(id):
     vet = vet_repository.select(id)
     return render_template("/vets/edit.html", vet=vet)
+
+@vets_blueprint.route("/vets/<id>/edit", methods=["POST"])
+def update(id):
+    vet = vet_repository.select(id)
+    vet.first_name = request.form['first_name']
+    vet.last_name = request.form['last_name']
+    vet_repository.update(vet)
+    return redirect(f"/vets/{id}")

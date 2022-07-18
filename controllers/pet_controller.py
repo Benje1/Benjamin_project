@@ -48,15 +48,16 @@ def show(id):
 def edit(id):
     pet = pet_repository.select(id)
     vets = vet_repository.select_all()
-    return render_template("/pets/edit.html", pet=pet, vets=vets)
+    owners = owner_repository.select_all()
+    return render_template("/pets/edit.html", pet=pet, vets=vets, owners=owners)
 
-@pets_blueprint.route("/pets/<id>", methods=["POST"])
+@pets_blueprint.route("/pets/<id>/edit", methods=["POST"])
 def update(id):
     pet = pet_repository.select(id)
     pet.name = request.form['name']
     pet.dob = request.form['dob']
     pet.type = request.form['type']
-    pet.owner_id = request.form['owner_id']
+    pet.owner_id = request.form['owner.id']
     pet.treatment = request.form['treatment']
     pet.vet_id = request.form['vet_id']
     pet_repository.update(pet)

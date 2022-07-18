@@ -36,3 +36,7 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
+def update(owner):
+    sql = "UPDATE owners SET contact_details = %s WHERE id = %s"
+    values = [owner.contact_details, owner.id]
+    run_sql(sql, values)

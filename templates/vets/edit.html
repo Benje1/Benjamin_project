@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    <form action="/vets" method="post">
+    <form action="/vets/{{vet.id}}/edit" method="post">
         <label for="first_name">
             Enter first name
         </label>

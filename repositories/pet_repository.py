@@ -61,3 +61,13 @@ def delete_by_owner(owner_id):
     sql = "DELETE FROM pets WHERE owner_id = %s"
     values = [owner_id]
     run_sql(sql, values)
+
+def select_by_owner(owner_id):
+    pets = []
+    sql = "SELECT * FROM pets WHERE owner_id = %s"
+    values = [owner_id]
+    results = run_sql(sql, values)
+    for row in results:
+        pet = Pet(row['name'], row['date_of_birth'], row['type_of_animal'], row['owner_id'], row['treatment'], row['vet_id'], row['id'])
+        pets.append(pet)
+    return pets

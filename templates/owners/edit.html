@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form action="/owners/{{owner.id}}" method="post">
+        <label for="contact_details">
+            contact details
+        </label>
+        <input type="text" id="contact_details" name="contact_details" value="{{owner.contact_details}}">
+        <button>Edit details</button>
+    </form>
+{% endblock %}
