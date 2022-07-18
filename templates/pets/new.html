@@ -13,10 +13,14 @@
             Enter pet type
         </label>
         <input type="text" id="type" name="type" placeholder="Enter pet type" required>
-        <label for="owner_details">
+        <label for="owner_id">
             Enter ownter details
         </label>
-        <input type="text" id="owner_details" name="owner_details" placeholder="Enter owner details" required>
+        <select name="owner.id" id="owner.id">
+            {% for owner in owners %}
+                <option value="{{owner.id}}">{{owner.name}}</option>
+            {% endfor %}
+        </select>
         <label for="treatment">
             Enter treatment plan
         </label>

@@ -5,7 +5,7 @@
             <a href="/owners/new">Register owner</a>
         </nav>
     <p>{% for owner in owners %}
-        Pet name: <a href="/owners/{{owner.id}}">{{owner.name}},</a>
+        Owner details: <a href="/owners/{{owner.id}}">{{owner.name}},</a>
         <form action="/owners/{{owner.id}}/delete" method="post">
             <button>Remove</button>
         </form>

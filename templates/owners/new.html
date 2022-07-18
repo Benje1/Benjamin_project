@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form action="/owners" method="post">
+        <label for="name">
+            Please enter name
+        </label>
+        <input type="text" id="name" name="name" placeholder="Enter name here" required autofocus>
+        <label for="contact_details">
+            Please enter contact details
+        </label>
+        <input type="text" id="contact_details" name="contact_details" placeholder="Enter contact details here" required>
+            <label for="pet_name">
+                Enter pet name
+            </label>
+            <input type="text" id="pet_name" name="pet_name" placeholder="Enter pet name here" required>
+            <label for="dob">
+                Enter date of birth
+            </label>
+            <input type="date" id="dob" name="dob" placeholder="Enter date of birth" required>
+            <label for="type">
+                Enter pet type
+            </label>
+            <input type="text" id="type" name="type" placeholder="Enter pet type" required>
+            <label for="owner_details">
+                Enter treatment details
+            </label>
+            <input type="text" id="treatment" name="treatment" placeholder="Enter treatment" required>
+            <label for="vet_id">
+                Choose vet
+            </label>
+            <select name="vet.id" id="vet.id">
+                {% for vet in vets %}
+                    <option value="{{vet.id}}">{{vet.first_name}} {{vet.last_name}}</option>
+                {% endfor %}
+            </select>
+        <button>Submit form</button>
+    </form>
+{% endblock %}

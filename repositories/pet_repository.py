@@ -7,28 +7,21 @@ import repositories.vet_repository as vet_repository
 import repositories.owener_repository as owner_repository
 
 def save(pet):
-    sql = """INSERT INTO pets (name, date_of_birth, type_of_animal, owner_details, treatment, vet_id) VALUES (%s, %s, %s, %s, %s, %s) RETURNING *"""
-    values = [pet.name, pet.dob, pet.type, pet.owner_details, pet.treatment, pet.vet_id]
+    sql = """INSERT INTO pets (name, date_of_birth, type_of_animal, owner_id, treatment, vet_id) VALUES (%s, %s, %s, %s, %s, %s) RETURNING *"""
+    values = [pet.name, pet.dob, pet.type, pet.owner_id, pet.treatment, pet.vet_id]
     results = run_sql(sql, values)
     id = results[0]['id']
     pet.id = id
-    owners = owner_repository.select_all()
-    owner_result = Owner(pet.owner_details, pet.id)
-    for owner in owners:
-        if owner.name == pet.owner_details:
-            owner_result = owner
-            break
-    if not owner_result.id:
-        owner_repository.save(owner_result)
 
 def select_all():
     pets = []
     sql = "SELECT * FROM pets ORDER BY id"
     results = run_sql(sql)
     for row in results:
-        pet = Pet(row['name'], row['date_of_birth'], row['type_of_animal'], row['owner_details'], row['treatment'], row['vet_id'], row['id'])
+        pet = Pet(row['name'], row['date_of_birth'], row['type_of_animal'], row['owner_id'], row['treatment'], row['vet_id'], row['id'])
         pets.append(pet)
     return pets
+# SELECT * FROM pets JOIN owners ON pets.owner_id = owners.id
 
 def select(id):
     pet = None
@@ -63,3 +56,8 @@ def vet(pet):
         result = results[0]
         vet = Vet(result['first_name'], result['last_name'], result['id'])
     return vet
+
+def delete_by_owner(owner_id):
+    sql = "DELETE FROM pets WHERE owner_id = %s"
+    values = [owner_id]
+    run_sql(sql, values)

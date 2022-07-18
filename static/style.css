@@ -25,3 +25,16 @@ div nav {
     text-decoration: none;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    align-items: baseline;
+}
+
+input, select {
+    margin-bottom: 10px;
+    width: 150px;
+}
+
+
