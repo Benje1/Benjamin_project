@@ -1,4 +1,3 @@
-from sys import dont_write_bytecode
 from flask import Blueprint, blueprints, redirect, render_template, request
 
 from models.pet import Pet

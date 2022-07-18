@@ -1,15 +1,25 @@
-from unittest import result
+from operator import imod
 from db.run_sql import run_sql
+from models.owners import Owner
 from models.pet import Pet
 from models.vet import Vet
 import repositories.vet_repository as vet_repository
+import repositories.owener_repository as owner_repository
 
 def save(pet):
     sql = """INSERT INTO pets (name, date_of_birth, type_of_animal, owner_details, treatment, vet_id) VALUES (%s, %s, %s, %s, %s, %s) RETURNING *"""
     values = [pet.name, pet.dob, pet.type, pet.owner_details, pet.treatment, pet.vet_id]
     results = run_sql(sql, values)
-    id = results
+    id = results[0]['id']
     pet.id = id
+    owners = owner_repository.select_all()
+    owner_result = Owner(pet.owner_details, pet.id)
+    for owner in owners:
+        if owner.name == pet.owner_details:
+            owner_result = owner
+            break
+    if not owner_result.id:
+        owner_repository.save(owner_result)
 
 def select_all():
     pets = []
