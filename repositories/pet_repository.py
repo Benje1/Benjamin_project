@@ -71,3 +71,13 @@ def select_by_owner(owner_id):
         pet = Pet(row['name'], row['date_of_birth'], row['type_of_animal'], row['owner_id'], row['treatment'], row['vet_id'], row['id'])
         pets.append(pet)
     return pets
+
+def select_by_vet(vet_id):
+    pets = []
+    sql = "SELECT * FROM pets WHERE vet_id = %s"
+    values = [vet_id]
+    results = run_sql(sql, values)
+    for row in results:
+        pet = Pet(row['name'], row['date_of_birth'], row['type_of_animal'], row['owner_id'], row['treatment'], row['vet_id'], row['id'])
+        pets.append(pet)
+    return pets

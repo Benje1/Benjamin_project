@@ -3,5 +3,10 @@
     <div>
         <p>{{vet.first_name}}, {{vet.last_name}}</p>
         <a href="/vets/{{vet.id}}/edit">Edit vet details</a>
+        <p>
+            {% for pet in pets %}
+                This pet: {{pet.name}}, is reciving this treatment: {{pet.treatment}}.
+            {% endfor %}
+        </p>
     </div>
 {% endblock %}
