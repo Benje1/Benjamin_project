@@ -2,15 +2,9 @@ html {
     background-color: rgba(131, 193, 255, 0.69);
 }
 
-body {
-    margin: 0;
-}
-
 header {
     display: flex;
     background-color: rgb(108, 108, 244);
-    margin: 0px;
-    padding: 20px;
     border-radius: 0% 0 5% 5%;
 }
 
@@ -18,20 +12,17 @@ nav {
     display: flex;
     justify-content: center;
     text-decoration: none;
-    margin: 20px;
 }
 
 nav ul {
     display: flex;
     flex-direction: row;
-    margin-left: 20px;
 }
 
 
 ul li {
     display: flex;
     list-style: none;
-    margin-left: 20px;
 }
 
 div nav {
@@ -41,29 +32,18 @@ div nav {
 form {
     display: flex;
     flex-direction: column;
-    padding: 50px;
     align-items: baseline;
-    margin-left: 20px;
 }
 
-p, a {
-    margin-left: 20px;
-}
 
-p > a {
-    margin-left: 0;
-}
+
 
 input, select {
-    margin-bottom: 10px;
     width: 150px;
 }
 
 #grid-container {
     display: grid;
-    grid-template-columns: auto auto;
-}
-
-/* #grid-item {
-    display: grid;
-} */
+    grid-template-areas:
+    50% 50%;
+    }

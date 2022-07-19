@@ -11,7 +11,7 @@ def select_all():
     sql = "SELECT * FROM in_care JOIN pets ON in_care.pet_id = pets.id"
     results = run_sql(sql)
     for row in results:
-        in_care = In_care(row['name'], row['date_of_intake'], row['type_of_animal'], row['treatment'], row['id'])
+        in_care = In_care(row['name'], row['date_of_intake'], row['type_of_animal'], row['treatment'], row['pet_id'], row['id'])
         intake.append(in_care)
     return intake
 

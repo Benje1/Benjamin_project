@@ -15,6 +15,10 @@ in_care_blueprint = Blueprint("in_care", __name__)
 def pets():
     pets = pet_repository.select_all()
     intake = in_care_repository.select_all()
+    for pet in pets:
+        for animal in intake:
+            if animal.pet_id == pet.id:
+                pets.remove(pet)
     return render_template("pets/index.html", pets=pets, intake=intake) 
 
 @pets_blueprint.route("/pets/<id>/delete", methods=["POST"])
