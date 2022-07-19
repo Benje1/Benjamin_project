@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form action="/in_care" method="post">
+        <label for="pet_name">
+            <select name="pet_id" id="pet_id">
+                {% for pet in pets %}
+                    <option value="{{pet.id}}">{{pet.name}}</option>
+                </select>
+                <p>Date of birth: {{pet.dob}}, treatment: {{pet.treatment}}</p>
+                {% endfor %}
+            <input type="date" id="date_of_intake" name="date_of_intake">
+            <button>Intake pet</button>
+    </form>
+{% endblock %}

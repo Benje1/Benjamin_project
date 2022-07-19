@@ -28,5 +28,6 @@ CREATE TABLE pets (
 
 CREATE TABLE in_care (
     id SERIAL PRIMARY KEY,
-    pet_id INT REFERENCES pets(id)
+    pet_id INT REFERENCES pets(id),
+    date_of_intake DATE
 );

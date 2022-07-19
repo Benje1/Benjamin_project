@@ -5,19 +5,25 @@ from models.pet import Pet
 import repositories.pet_repository as pet_repository
 import repositories.vet_repository as vet_repository
 import repositories.owener_repository as owner_repository
+import repositories.in_care_repository as in_care_repository
 
 pets_blueprint = Blueprint("pets", __name__)
+in_care_blueprint = Blueprint("in_care", __name__)
 
 # index
 @pets_blueprint.route("/pets")
 def pets():
     pets = pet_repository.select_all()
-    return render_template("pets/index.html", pets=pets) 
+    intake = in_care_repository.select_all()
+    return render_template("pets/index.html", pets=pets, intake=intake) 
 
 @pets_blueprint.route("/pets/<id>/delete", methods=["POST"])
 def delete(id):
     pet_repository.delete(id)
     return redirect("/pets")
+
+
+
 
 @pets_blueprint.route("/pets/new")
 def new():

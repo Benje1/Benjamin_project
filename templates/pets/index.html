@@ -1,17 +1,28 @@
 {% extends 'base.html' %}
 {% block content %}
-
-        <nav>
-            <a href="/pets/new">Add pet</a>
-        </nav>
-    <p>{% for pet in pets %}
+<nav>
+    <a href="/pets/new">Add pet</a>
+    <a href="in_care/new">Take pet in for treatment</a>
+</nav>
+<div id="grid-container">
+    <div class="grid-item"><p>{% for pet in pets %}
+        
         Pet name: <a href="/pets/{{pet.id}}">{{pet.name}},</a>
         Type: {{pet.type}},
         Date of birth: {{pet.dob}},
         Treatmnet: {{pet.treatment}}.
         <form action="/pets/{{pet.id}}/delete" method="post">
             <button>Remove</button>
-        </form>
-    {% endfor %}</p>
-    
+        </form></div>
+        {% endfor %}
+        
+        <div class="grid-item">
+            {% for animal in intake %}
+                <p>{{animal.pet_name}}, {{animal.type}}: date of intake {{animal.date_of_intake}} and treatment is {{animal.treatment}}</p>
+                <form action="/in_care/{{animal.id}}/delete" method="post">
+                    <button>Remove from intake</button>
+                </form>
+                {% endfor %}
+        </div>
+    </div>
 {% endblock %}

@@ -59,4 +59,12 @@ input, select {
     width: 150px;
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns:
+    auto;
+}
 
+#grid-item {
+    display: grid;
+}

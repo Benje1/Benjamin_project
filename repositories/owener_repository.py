@@ -1,4 +1,3 @@
-from unittest import result
 from db.run_sql import run_sql
 from models.owners import Owner
 from models.pet import Pet
