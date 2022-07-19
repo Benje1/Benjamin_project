@@ -2,8 +2,9 @@ from db.run_sql import run_sql
 from models.in_care import In_care
 
 def intake(pet_id, date_of_intake):
-    sql = "INSERT INTO in_care (pet_id, date_of_intake) VALUES (%S, %S)"
+    sql = "INSERT INTO in_care (pet_id, date_of_intake) VALUES (%s, %s)"
     vallues = [pet_id, date_of_intake]
+    run_sql(sql, vallues)
 
 def select_all():
     intake = []

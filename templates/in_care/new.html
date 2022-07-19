@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     <form action="/in_care" method="post">
-        <label for="pet_name">
+        <label for="pet_information">
             <select name="pet_id" id="pet_id">
                 {% for pet in pets %}
                     <option value="{{pet.id}}">{{pet.name}}</option>

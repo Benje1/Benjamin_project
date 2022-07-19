@@ -23,8 +23,6 @@ def delete(id):
     return redirect("/pets")
 
 
-
-
 @pets_blueprint.route("/pets/new")
 def new():
     vets = vet_repository.select_all()
