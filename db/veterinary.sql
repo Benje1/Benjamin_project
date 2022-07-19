@@ -1,7 +1,7 @@
+DROP TABLE IF EXISTS in_care;
 DROP TABLE IF EXISTS pets;
 DROP TABLE IF EXISTS owners;
 DROP TABLE IF EXISTS vets;
-DROP TABLE IF EXISTS in_care;
 
 CREATE TABLE vets (
     id SERIAL PRIMARY KEY,
@@ -15,7 +15,6 @@ CREATE TABLE owners (
     contact_details VARCHAR(255)
 );
 
-
 CREATE TABLE pets (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
@@ -25,6 +24,7 @@ CREATE TABLE pets (
     treatment TEXT,
     vet_id INT NOT NULL REFERENCES vets(id)
 );
+
 
 CREATE TABLE in_care (
     id SERIAL PRIMARY KEY,
