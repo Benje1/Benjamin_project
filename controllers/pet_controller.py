@@ -10,7 +10,6 @@ import repositories.in_care_repository as in_care_repository
 pets_blueprint = Blueprint("pets", __name__)
 in_care_blueprint = Blueprint("in_care", __name__)
 
-# index
 @pets_blueprint.route("/pets")
 def pets():
     pets = pet_repository.select_all()

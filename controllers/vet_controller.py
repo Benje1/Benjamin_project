@@ -6,7 +6,7 @@ import repositories.pet_repository as pet_repository
 
 vets_blueprint = Blueprint("vets", __name__)
 
-# index
+
 @vets_blueprint.route("/vets")
 def vets():
     vets = vet_repository.select_all()
