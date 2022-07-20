@@ -6,6 +6,8 @@ header {
     display: flex;
     background-color: rgb(108, 108, 244);
     border-radius: 0% 0 5% 5%;
+    display: flex;
+    justify-content: space-around;
 }
 
 nav {
@@ -17,8 +19,13 @@ nav {
 nav ul {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    margin-left: 10px;
 }
 
+nav a {
+    margin-left: 10px;
+}
 
 ul li {
     display: flex;
@@ -44,6 +51,15 @@ input, select {
 
 #grid-container {
     display: grid;
-    grid-template-areas:
-    50% 50%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-column-gap: 0px;
+grid-row-gap: 0px;
     }
+
+.registered {
+    grid-area: 1 / 1 / 7 / 2;
+}
+.intake {
+    grid-area: 1 / 2 / 7 / 3;
+}

@@ -6,7 +6,7 @@
 </nav>
 <section id="grid-container">
     <div class="registered">
-        <h2>Registered pets</h2><p>
+            <h2>Registered pets</h2><p>
         {% for pet in pets %}
         Pet name: <a href="/pets/{{pet.id}}">{{pet.name}},</a>
         Type: {{pet.type}},
@@ -14,12 +14,12 @@
         Treatmnet: {{pet.treatment}}.</p>
         <form action="/pets/{{pet.id}}/delete" method="post">
             <button>Remove</button>
-        </form></div>
-        {% endfor %}
+        </form>
+        {% endfor %}</div>
         
         <div class="intake">
-            <h2>Pets in intake</h2>
-            {% for animal in intake %}
+        <h2>Pets in intake</h2>
+        {% for animal in intake %}
                 <p><a href="/pets/{{animal.id}}">{{animal.pet_name}}</a>, {{animal.type}}: date of intake {{animal.date_of_intake}} and treatment is {{animal.treatment}}</p>
                 <form action="/in_care/{{animal.id}}/delete" method="post">
                     <button>Remove from intake</button>
