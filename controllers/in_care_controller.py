@@ -7,6 +7,11 @@ in_care_blueprint = Blueprint("in_care", __name__)
 @in_care_blueprint.route("/in_care/new")
 def new():
     pets = pet_repository.select_all()
+    intaken = in_care_repository.select_all()
+    for pet in pets:
+        for animal in intaken:
+            if animal.pet_id == pet.id:
+                pets.remove(pet)
     return render_template("/in_care/new.html", pets=pets)
 
 @in_care_blueprint.route("/in_care", methods=["POST"])

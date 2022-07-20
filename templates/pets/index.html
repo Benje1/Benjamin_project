@@ -8,7 +8,7 @@
     <div class="registered">
             <h2>Registered pets</h2><p>
         {% for pet in pets %}
-        Pet name: <a href="/pets/{{pet.id}}">{{pet.name}},</a>
+        <p> Pet name: <a href="/pets/{{pet.id}}">{{pet.name}},</a>
         Type: {{pet.type}},
         Date of birth: {{pet.dob}},
         Treatmnet: {{pet.treatment}}.</p>

@@ -66,7 +66,6 @@ def update(id):
     pet.dob = request.form['dob']
     pet.type = request.form['type']
     pet.owner_id = request.form['owner.id']
-    pet.treatment = request.form['treatment']
     pet.vet_id = request.form['vet_id']
     pet_repository.update(pet)
     return redirect(f"/pets/{id}")

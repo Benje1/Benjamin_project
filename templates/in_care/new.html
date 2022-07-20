@@ -4,11 +4,13 @@
         <label for="pet_information">
             <select name="pet_id" id="pet_id">
                 {% for pet in pets %}
-                    <option value="{{pet.id}}">{{pet.name}}</option>
-                </select>
-                <p>Date of birth: {{pet.dob}}, treatment: {{pet.treatment}}</p>
-                {% endfor %}
-            <input type="date" id="date_of_intake" name="date_of_intake">
+                    <option value="{{pet.id}}">{{pet.name}}, treatment:{{pet.treatment}}</option>
+                    {% endfor %}
+            </select>
+            <label for="date of intake">Date of intake:</label>
+            <input type="date" id="date_of_intake" name="date_of_intake" >
             <button>Intake pet</button>
     </form>
 {% endblock %}
+
+
