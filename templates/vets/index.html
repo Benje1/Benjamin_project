@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+<h3>Vets, Register a new vet, see who they are taking care of</h3>
 <nav> <a href="/vets/new">Register a new vet</a></nav>
     {% for vet in vets %}
         <a href="/vets/{{vet.id}}"><p>{{ vet.first_name}} {{vet.last_name}}</p></a>
